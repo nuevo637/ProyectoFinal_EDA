@@ -1,5 +1,6 @@
 import csv
 
+#Clase canción para los Objetos
 class Cancion:
     def __init__(self):
         self.artist_name = ""
@@ -17,11 +18,12 @@ class Cancion:
     def get_track_name(self):
         return self.track_name
 
+#Método para leer el archivo
 def leer_csv(archivo_csv):
     canciones = []
     with open(archivo_csv, newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)
-        next(reader, None)  # Skip the header
+        next(reader, None) #Se omite la cabecera
         for row in reader:
             if len(row) >= 2:
                 cancion = Cancion()
