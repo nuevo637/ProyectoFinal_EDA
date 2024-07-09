@@ -1,22 +1,5 @@
+from cancion import Cancion
 import csv
-
-#Clase canción para los Objetos
-class Cancion:
-    def __init__(self):
-        self.artist_name = ""
-        self.track_name = ""
-
-    def set_artist_name(self, name):
-        self.artist_name = name
-
-    def set_track_name(self, name):
-        self.track_name = name
-
-    def get_artist_name(self):
-        return self.artist_name
-
-    def get_track_name(self):
-        return self.track_name
 
 #Método para leer el archivo
 def leer_csv(archivo_csv):
@@ -32,14 +15,15 @@ def leer_csv(archivo_csv):
                 canciones.append(cancion)
     return canciones
 
+#Main para la ejecucipon de prueba
 def main():
     archivo_csv = "./archive/spotify_data.csv"
     try:
         canciones = leer_csv(archivo_csv)
-        for cancion in canciones:
+        for cancion in canciones[:10]:
             print(f"Nombre de Artista: {cancion.get_artist_name()} y Canción del Artista: {cancion.get_track_name()}")
     except IOError as e:
         print(f"Error leyendo el archivo: {e}")
 
-if __name__ == "__main__":
+if __name__ == "__main__": #Se asegura ejecutar de manera independiente
     main()
