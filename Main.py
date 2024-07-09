@@ -1,6 +1,7 @@
 from leer_csv import *
+archivo_csv = "./archive/spotify_data.csv"
+
 def main():
-    archivo_csv = "./archive/spotify_data.csv"
     try:
         canciones = leer_csv(archivo_csv)
         for cancion in canciones[:10]:
