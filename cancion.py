@@ -3,6 +3,7 @@ class Cancion:
         self.artist_name = ""
         self.track_name = ""
         self.track_year = ""
+        self.track_id = ""
         self.track_popularity = 0  
         self.track_duration_ms = 0  
 
@@ -11,6 +12,9 @@ class Cancion:
 
     def set_track_name(self, name):
         self.track_name = name
+
+    def set_track_id(self, id):
+        self.track_id = id
 
     def set_year(self, year):
         self.track_year = year
@@ -26,6 +30,9 @@ class Cancion:
 
     def get_track_name(self):
         return self.track_name
+    
+    def get_track_id(self):
+        return self.track_id
     
     def get_year(self):
         return self.track_year
