@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,18 +11,21 @@ class Main {
         Scanner sc = new Scanner(System.in);
         String archivocsv = "../archive/spotify_data.csv";
         HashMap<String, Cancion> cancionesMap = new HashMap<>();
+        int cancionesnum = 0;
         try {
             Cancion[] canciones = leerCSV(archivocsv);
             for (Cancion cancion : canciones) {
-                //System.out.println(" Id: " + cancion.getArtistId() + " Nombre de Artista: " + cancion.getArtistName() + " y Cancion del artista: " + cancion.getTrackName());
                 cancionesMap.put(cancion.getArtistId(), cancion);
             }
 
-            for (Map.Entry<String, Cancion> entry : cancionesMap.entrySet()) {
-                String key = entry.getKey();
-                Cancion value = entry.getValue();
+            for (HashMap<String, Cancion>.Entry<String, Cancion> entry : cancionesMap.entrySet()) {
+                String key = entry.key;
+                Cancion value = entry.value;
                 System.out.println("Key: " + key + ", Value: " + value.toString());
+                cancionesnum++;
             }
+
+            System.out.println("Número de canciones: " + cancionesnum);
 
         } catch (IOException e) {
             System.out.println("Error leyendo el archivo: " + e.getMessage());
